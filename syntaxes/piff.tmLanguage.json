@@ -14,10 +14,16 @@
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.piff",
-				"match": "\\b(if|else|fn|while|for|return|continue|break|class|interface|protected|private|public|new)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.piff",
+					"match": "\\b(if|else|fn|while|for|return|continue|break|class|interface|protected|private|public|new|use|namespace)\\b"
+				},
+				{
+					"name": "keyword.operator.piff",
+					"match": "\\b([+-/*%^.]|=>)\\b"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.piff",
@@ -31,11 +37,12 @@
 			]
 		},
 		"fields": {
-			"patterns": [{
-				"name": "fields.piff",
-				"match": "\\b(@{1,2}[:alpha]+)\\b"
-			}]
-
+			"patterns": [
+				{
+					"name": "fields.piff",
+					"match": "\\b(@{1,2}[:alpha]+)\\b"
+				}
+			]
 		}
 	},
 	"scopeName": "source.piff"
