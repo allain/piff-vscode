@@ -43,9 +43,11 @@
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "node ./node_modules/vscode/bin/test"
     },
+    "dependencies": {
+        "piff": "^0.7.2"
+    },
     "devDependencies": {
         "@types/node": "^10.1.3",
-        "piff": "^0.7.2",
         "typescript": "^2.0.3",
         "vscode": "^1.1.18"
     }
