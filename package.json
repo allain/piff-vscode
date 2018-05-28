@@ -10,7 +10,7 @@
     },
     "main": "out/src/extension.js",
     "activationEvents": [
-        "onLanguage:piff"
+        "*"
     ],
     "categories": [
         "Programming Languages"
