@@ -1,9 +1,9 @@
 {
     "name": "piff-vscode",
     "displayName": "piff",
-    "description": "Piff language support",
+    "description": "Piff Language Support",
     "version": "0.0.1",
-    "publisher": "allain.lalonde <allain.lalonde@gmail.com",
+    "publisher": "allainlalonde",
     "repository": "https://github.com/allain/piff-vscode",
     "engines": {
         "vscode": "^1.23.0"
@@ -45,7 +45,7 @@
     },
     "devDependencies": {
         "@types/node": "^10.1.3",
-        "piff": "^0.7.0",
+        "piff": "^0.7.1",
         "typescript": "^2.0.3",
         "vscode": "^1.1.18"
     }
