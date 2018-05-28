@@ -10,7 +10,7 @@
     },
     "main": "out/src/extension.js",
     "activationEvents": [
-        "*"
+        "onLanguage:piff"
     ],
     "categories": [
         "Programming Languages"
@@ -45,7 +45,7 @@
     },
     "devDependencies": {
         "@types/node": "^10.1.3",
-        "piff": "^0.7.1",
+        "piff": "^0.7.2",
         "typescript": "^2.0.3",
         "vscode": "^1.1.18"
     }
