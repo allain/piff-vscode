@@ -1,0 +1,42 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "piff",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#fields"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.piff",
+				"match": "\\b(if|else|fn|while|for|return|continue|break|class|interface|protected|private|public|new)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.piff",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.piff",
+					"match": "\\\\."
+				}
+			]
+		},
+		"fields": {
+			"patterns": [{
+				"name": "fields.piff",
+				"match": "\\b(@{1,2}[:alpha]+)\\b"
+			}]
+
+		}
+	},
+	"scopeName": "source.piff"
+}
