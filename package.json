@@ -3,7 +3,8 @@
     "displayName": "piff",
     "description": "Piff language support",
     "version": "0.0.1",
-    "publisher": "allain",
+    "publisher": "allain.lalonde <allain.lalonde@gmail.com",
+    "repository": "https://github.com/allain/piff-vscode",
     "engines": {
         "vscode": "^1.23.0"
     },
