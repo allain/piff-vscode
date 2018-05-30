@@ -21,11 +21,24 @@ function compilePiff(document) {
 
 
 export function activate(context: vscode.ExtensionContext) {
-    console.log('registering piff')
+    let diagnosticCollection = vscode.languages.createDiagnosticCollection('piff');
+    context.subscriptions.push(diagnosticCollection);
 
     vscode.workspace.onDidSaveTextDocument((document: vscode.TextDocument) => {
         if (document.languageId === 'piff') {
-            compilePiff(document)
+            diagnosticCollection.clear();
+            try {
+                compilePiff(document)
+            } catch (err) {
+                let diagnosticMap: Map<string, vscode.Diagnostic[]> = new Map();
+                let canonicalFile = vscode.Uri.file(document.uri.fsPath).toString();
+                let range = new vscode.Range(
+                    err.location.start.line - 1,
+                    err.location.start.column,
+                    err.location.end.line - 1,
+                    err.location.end.column);
+                diagnosticCollection.set(document.uri, [new vscode.Diagnostic(range, err.message, vscode.DiagnosticSeverity.Error)])
+            }
         }
     })
 
@@ -33,11 +46,10 @@ export function activate(context: vscode.ExtensionContext) {
         { scheme: 'file', language: 'piff' },
         {
             provideDocumentFormattingEdits(document: vscode.TextDocument): vscode.TextEdit[] {
-                const phpPath = document.uri.fsPath.replace(/[.]piff$/, '.php')
-                const compiled = compilePiff(document)
                 const piffCode = document.getText()
                 const firstLine = document.lineAt(0);
                 const lastLine = document.lineAt(document.lineCount - 1);
+
                 const fullRange = new vscode.Range(0,
                     firstLine.range.start.character,
                     document.lineCount - 1,
@@ -48,6 +60,8 @@ export function activate(context: vscode.ExtensionContext) {
                 return [vscode.TextEdit.replace(fullRange, formatted)];
             }
         });
+
+
 
 }
 
